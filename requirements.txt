@@ -1,0 +1,12 @@
+pandas
+numpy
+more-itertools
+xlrd
+openpyxl
+Pillow
+pybase64
+streamlit
+plotly.express
+matplotlib
+plotly
+seaborn
