@@ -24,13 +24,13 @@ st.title("Repuestos Garantías")
 
 # Cargamos el archivo
 df = pd.read_csv('PredGarantias0701.csv', sep=";" ,encoding= 'unicode_escape')
-df.drop(['Unnamed: 0'],axis=1, inplace=True)
+#df.drop(['Unnamed: 0'],axis=1, inplace=True)
 
 # para borrar tildes y reemplazar espacios con _
 clean_accent=(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
 df.columns=clean_accent(df.columns)
 df.columns = df.columns.str.replace(' ', '_')
-
+st.write(df.columns)
 # establecer el formato fechas
 df['Fecha_documento'] = pd.to_datetime(df['Fecha_documento'])
 df['Fecha_dictamen_tecnico'] = pd.to_datetime(df['Fecha_dictamen_tecnico'])
