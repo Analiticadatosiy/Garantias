@@ -30,7 +30,7 @@ df = pd.read_csv('PredGarantias0701.csv', sep=";" ,encoding= 'unicode_escape')
 clean_accent=(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
 df.columns=clean_accent(df.columns)
 df.columns = df.columns.str.replace(' ', '_')
-st.write(df.columns)
+
 # establecer el formato fechas
 df['Fecha_documento'] = pd.to_datetime(df['Fecha_documento'])
 df['Fecha_dictamen_tecnico'] = pd.to_datetime(df['Fecha_dictamen_tecnico'])
@@ -63,7 +63,7 @@ df_MC=df_MC[df_MC['Condicion']!='ZZ']
 # Elimino columnas innecesarias
 df_MC.reset_index(inplace=True)
 #df_MC.drop(['index','Nombre_Comercial','Fecha_venta_distribuidor','Proveedor_orden_compra','Pais_proveedor', 'Codigo_Negocio'],axis=1, inplace=True)
-
+st.write(df_MC.columns)
 #Para quedarme con las variables que me interesan y en el orden que me interesa
 df_MC=df_MC[['Numero_solicitud', 'Kilometraje_falla', 'Fecha_dictamen_tecnico','Numero_de_motor','Clasificacion_MC','Categoria',
              'NombreComercial','Nombre_GrupoClasificacion', 'Codigo_modelo_1', 'Codigo_modelo_2','Descripcion_modelo',
